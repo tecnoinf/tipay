@@ -12,6 +12,20 @@ Rails.application.routes.draw do
   
   resources :notices
   
+  resources :users, only: [:index, :show, :edit,:update,:destroy]
+  
+  
+  get 'principal/index'
+  get 'evento' => 'evento#listar'
+  get 'evento/nuevo' => 'evento#nuevo'
+  post 'evento/nuevo' => 'evento#nuevo'
+  post 'evento/crear' => 'evento#crear'
+  get 'evento/crear' => 'evento#crear'
+  get 'evento/eliminar' => 'evento#eliminar'
+  post 'evento/eliminar' => 'evento#eliminar'
+  get 'evento/mostrar'
+  get 'evento/modificar' => 'evento#modificar'
+  post 'evento/modificar' => 'evento#modificar'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
