@@ -1,0 +1,33 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  Monday: "Lun"
+  Tuesday: "Mar"
+  Wednesday: "Wed"
+  Thursday: "Jue"
+  Friday: "Vie"
+  Saturday: "Sab"
+  Sunday: "Dom"
+  
+  Mon: ""
+  Tues: ""
+  Wed: ""
+  Thur: ""
+  Fri: ""
+  Sat: ""
+  Sun: ""
+
+  January: "Enero"
+  February: "Febrero"
+  March: "Marzo"
+  April: "Abril"
+  May: "Mayo"
+  June : "Junio"
+  July: "Julio"
+  August: "Agosto"
+  September: "Setiembre"
+  October: "Octubre"
+  November: "Noviembre"
+  December: "Diciembre"
+  

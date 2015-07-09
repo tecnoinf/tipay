@@ -1,0 +1,40 @@
+
+
+<h1 class="text-center"> <%= t(Date::MONTHNAMES[Date.today.month]) %> </h1>
+<div class="row">
+    
+    	<button class="btn btn-primary" data-calendar-nav="prev">
+    	    << Anterior
+    	</button>
+	
+	
+    	<button class="btn" data-calendar-nav="today">
+    	    Hoy
+    	</button>
+	
+	
+    	<button class="btn btn-primary" data-calendar-nav="next">
+    	    Siguiente >>
+    	</button>
+	
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+    <%= bootstrap_calendar Date.today { } do |date| %>
+    
+        <% if Date.current() > date %> <!--si la fecha actual no se puede agregar eventos-->
+            <%= date.month %>/<%= date.day %>
+        <% else %><!-- sino, si se muestra el link para agregar el nuevo evento-->
+            <%= link_to  ("#{date.month} / #{date.day}"), evento_nuevo_path(:dato1 => date ), :method => :post %>
+        <% end %>
+        
+        <% @eventos.each do |e| %>
+            <% if date==e.fecha %>
+            <br> 
+                <%= link_to e.titulo, evento_mostrar_path(:id => e ), :method => :get%>
+            <% end %>
+        <% end %>
+    <% end %>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+
+
+
+<div class="container" style="margin-top:40px;">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">   
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><%= @evento.titulo %></h3>
+                </div>
+                <div class="panel-body">
+                    <%= @evento.cuerpo %>
+                    
+                    <% if @evento.archivo=="vacio" || @evento.archivo=="" %>
+                    <% else %>
+                        <h4>Archivo :</h4>
+                            <a target="_blank" href="/archivos/<%= @evento.archivo %>"><%= @evento.archivo %></a> 
+                        <br>
+                    <% end %>
+                </div>
+                
+                <div class="panel-footer">
+                    Hora: <%= @evento.inicio %>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-lg-offset-3" style="margin-top:20px;" >   
+            <%= link_to 'Volver al Calendario', principal_index_path, class: 'btn btn-primary' %>
+        </div>
+    </div>
+</div>
+
+<style>
+    footer {
+        padding: 50px 0;
+        background-color: #f8f8f8;
+        bottom: 0px;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+    }
+</style>
