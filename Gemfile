@@ -47,7 +47,9 @@ gem 'kaminari-bootstrap'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "font-awesome-rails"
+
 gem 'mail_form'
+gem 'simple_form'
 
 gem 'paperclip', '~> 4.1'
 

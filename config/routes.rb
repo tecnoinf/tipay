@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/egresados' => 'static_pages#egresados'
   get '/acercade' =>  'static_pages#about'
   
+  get '/contacts',     to: 'contacts#new'
+  resources "contacts", only: [:new, :create]
+  
   
   resources :notices
   
