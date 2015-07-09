@@ -1,0 +1,34 @@
+   
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">   
+           
+           <div class="page-header">
+              <h1><%= @notice.title %></h1>
+            </div>
+           
+            <p><%= @notice.body %></p>
+            <p><%= (@notice.fecha).strftime('%m/%d/%Y') %></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    footer {
+        bottom:0;
+    }
+    
+    .users.row {
+    -moz-column-width: 15em;
+    -webkit-column-width: 15em;
+    -moz-column-gap: 0;
+    -webkit-column-gap: 0;
+}
+
+@media (min-width: 992px) {
+    .users.row {
+        -moz-column-width: 13.5em;
+        -webkit-column-width: 13.5em;
+    }
+}
+</style>

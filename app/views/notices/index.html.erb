@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <br>
+            <% if current_user.role ==1 %>
+            <%= link_to 'Crear Noticia', new_notice_path, class:'btn btn-default btn-md' %>
+            <% end %>
+            <%= paginate(@notices) %>
+            
+            
+              <h2>Noticias</h2>
+              <p> Noticias del Tecn&oacute;logo</p>
+                  <% @notices.each do |p| %>    
+                    
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><%= link_to p.title, notice_path(p.id) %></h3>
+                  </div>
+                  <div class="panel-body">
+                    <%= p.body %>
+                  </div>
+                </div>
+              <% end %>
+              
+            
+        <%= paginate(@notices) %>
+        </div>
+    </div>
+</div>
+
+<style>
+    footer {
+        bottom:0;
+    }
+</style>

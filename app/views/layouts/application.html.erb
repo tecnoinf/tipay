@@ -4,11 +4,25 @@
   <title>Tipay</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <%= csrf_meta_tags %><style>
+          body { padding-top: 50px; }
+        </style>
 
-<%= yield %>
-
-</body>
+    </head>
+    
+  <body>
+  
+    <%= render 'layouts/cabezal' %>
+    <%= render 'layouts/flash_messages' %>
+  
+  <%= yield %>
+  
+  <%= render 'layouts/footer' %>
+  
+  </body>
+  <script>
+    Pace.on("done", function(){
+    $(".cover").fadeOut(2000);
+});
+  </script>
 </html>

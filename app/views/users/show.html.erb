@@ -1,0 +1,59 @@
+<style>
+            
+            tbody tr {
+                cursor: pointer;
+            }
+            
+            table {
+                margin-top: 20px;
+            }
+</style>
+<div class="container-fluid">
+    <div class="row" style="margin-top:50px;">
+        <div class="col-xs-10 col-md-offset-1" id="wrapper">
+            <div class="row" id="main">
+                    <div class="col-xs-10">
+                        <div class="row" id="main">
+                            <div class="panel panel-info" id="ipanelperfil">
+                                <div class="panel-heading">
+                                    Perfil
+                                </div>
+                                <div class="panel-body">
+                                        <div class="row">
+                                            <div  class="col-xs-4">
+                                                <%= image_tag(@user.avatar.url(:thumb)) %>
+                                                
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">
+                                                        Nombre: <%=@user.name%>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Apellido: <%=@user.last_name%>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Email: <%=@user.email%>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Contacto: <%=@user.date_of_birth%>
+                                                    </li>
+                                                </ul>
+                                                <%= link_to "Regresar", :back, class: 'btn btn-default btn-md' %>
+                                            </div>
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    footer{
+        bottom:0;
+    }
+</style>

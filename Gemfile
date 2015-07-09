@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,10 +42,32 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+gem "font-awesome-rails"
+gem 'mail_form'
+
+gem 'paperclip', '~> 4.1'
+
+gem "therubyracer"
+gem "less-rails" 
+gem "bootstrap_calendar_rails"
+gem 'rails-i18n'
+gem 'wow-rails'
+
+#gemas para almacenar imagenes en amazon para ver en heroku siempre
+gem 'aws-sdk', '~> 1.36.1'
+gem 'fog'
+###################################################33
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'annotate'
+  gem 'foreman'
 end
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end

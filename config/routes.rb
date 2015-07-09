@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {registrations: 'registrations'}
+  
+  root 'static_pages#home'
+  
+  get '/administrador' => 'static_pages#admin'  #admin es el nombre del archivo
+  
+  get '/home' =>      'static_pages#home'
+  get '/egresados' => 'static_pages#egresados'
+  get '/acercade' =>  'static_pages#about'
+  
+  
+  resources :notices
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

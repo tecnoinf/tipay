@@ -1,0 +1,23 @@
+<div class="container" style="margin-top:20px; margin-bottom:20px;">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-2">
+            <%= form_for @notice do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+                <div class="form-group">
+                    <%= f.label :Titulo, class: 'control-label' %>
+                    <%= f.text_field :title, class: 'form-control' %>
+                </div>
+        
+                <div class="form-group">
+                    <%= f.label :Contenido, class: 'control-label' %>
+                    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+                </div>
+        
+                <%= f.submit 'Save', class: 'btn btn-primary' %>
+            <% end %>
+
+        </div>
+    </div>    
+</div>
+
+
