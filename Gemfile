@@ -57,6 +57,7 @@ gem "therubyracer"
 gem "less-rails" 
 gem "bootstrap_calendar_rails"
 gem 'rails-i18n'
+
 gem 'wow-rails'
 
 #gemas para almacenar imagenes en amazon para ver en heroku siempre

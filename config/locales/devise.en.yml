@@ -54,7 +54,7 @@ en:
       unlocked: "Su cuenta se ha desbloqueada satisfactoriamente. Por favor Intedentifiquese para continuar."#"Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
-      already_confirmed: "Fue confirmado ya, por favor intente indentificandose."#"was already confirmed, please try signing in"
+      already_confirmed: "Fue confirmado ya, por favor intente identificandose."#"was already confirmed, please try signing in"
       confirmation_period_expired: "Necesitamos que confirme dentro de %{period}, por favor solicite una nueva"#"needs to be confirmed within %{period}, please request a new one"
       expired: "Ha espirado el tiempo, por favor solicite una nueva"#"has expired, please request a new one"
       not_found: "no encontrado"#"not found"

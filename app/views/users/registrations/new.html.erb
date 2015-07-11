@@ -10,48 +10,48 @@
 <div class="form-group">
     <%= f.label :Nombre, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :name, class: "form-control",autofocus: true %>
+        <%= f.text_field :name, required:"", id:"nombre", placeholder:"Nombre", class: "form-control",autofocus: true %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Apellido, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :last_name, class: "form-control",autofocus: true %>
+        <%= f.text_field :last_name, required:"", id:"apellido", placeholder:"Apellido", class: "form-control",autofocus: true %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Contacto, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :contacto, class: "form-control",autofocus: true %>
+        <%= f.text_field :contacto, id:"contacto", required:"", placeholder:"Numero de Contacto", class: "form-control", autofocus: true %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :email, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.email_field :email, class: "form-control" %>
+        <%= f.email_field :email, required:"", placeholder:"E-mail", class: "form-control", autofocus: true %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Contraseña, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <%= f.password_field :password, required:"", id:"pass" , placeholder:"Contraseña",autocomplete: "off", class: "form-control" %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Confirmar_contraseña, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        <%= f.password_field :password_confirmation, id:"retrypass" ,required:"", placeholder:"Confirmar Contraseña", autocomplete: "off", class: "form-control" %>
     </div>
 </div>
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
-        <%= f.submit "Registrar", class: "btn btn-primary" %>
+        <%= f.submit "Registrar", id:"update" ,class: "btn btn-primary" %>
     </div>
 </div>
 
@@ -61,3 +61,88 @@
     </div>
 </div>
 <% end %>
+
+
+
+<script type="text/javascript">
+        $(document).ready(function(){
+
+            function validarEmail() {
+                var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+             
+                if (regex.test($('#email').val().trim())) {
+                    $("#email")
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            function mostrarAlerta(msg){
+                $("#divalerta").append(msg);
+                $("#divalerta").show();
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+                $("#divalerta").fadeTo(1000, 500).slideUp(5000, function(){
+                    $(this).hide();
+                    $(this).empty();
+                    if($("#divalerta").hasClass("alert-success")){
+                      location.href= "api/index";
+                    }
+                });
+            }
+
+            $("#update").click(function(e){
+                
+                
+                
+                if(!validarEmail()){
+                    $("#divalerta").addClass("alert-danger");
+                    $("#divalerta").removeClass("alert-success");
+                    var j = $("<p id=\"alerta\"><span class=\"glyphicon glyphicon-exclamation-sign\"></span>Formato de email incorrecto</p>");
+                    mostrarAlerta(j);   
+                    e.preventDefault();
+                    return;             
+                }
+                if($("#newpass").val() != $("#retypepass").val()){
+                    $("#divalerta").addClass("alert-danger");
+                    $("#divalerta").removeClass("alert-success");
+                    var j = $("<p id=\"alerta\"><span class=\"glyphicon glyphicon-exclamation-sign\"></span>Las contraseñas no concuerdan</p>");
+                    mostrarAlerta(j);                
+                    e.preventDefault();
+                    return;
+                }
+                
+                var datos = {};
+                datos['accion'] = "ingresar";
+                datos['nombre'] = $("#nombre").val();
+                datos['apellido'] = $("#apellido").val();
+                datos['email'] = $("#email").val();
+                datos['pass'] = $("#newpass").val();
+                //var params={'datos' : datos};
+
+                $.ajax({
+                    method: "POST",
+                    async: false,
+                    data: datos,
+                    url: "/",
+                    success: function(response){
+                        var arr = response.split("-");
+                        if(arr[0]=="ok"){
+                            $("#divalerta").removeClass("alert-danger");
+                            $("#divalerta").addClass("alert-success"); 
+                            $("#update").prop('disabled',true);                                
+                        }
+                        else{
+                            $("#divalerta").addClass("alert-danger");
+                            $("#divalerta").removeClass("alert-success");
+                        }
+                        var j = $("<p id=\"alerta\"><span class=\"glyphicon glyphicon-exclamation-sign\"></span>"+arr[1]+".</p>");
+                        mostrarAlerta(j);
+                    }
+
+                });
+            });
+        });
+
+    </script>

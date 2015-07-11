@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
     def after_sign_in_path_for(resource)
       if current_user.role == 1
-        "/administrador"
+        "/a"
       else if current_user.role == 2
           "/notices"
         end
