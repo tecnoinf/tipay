@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   
   private
   def set_admin
-    if User.count < 2
+    if User.count < 1
       self.role = 1
     end
   end
