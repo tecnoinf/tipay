@@ -6,7 +6,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'tipay.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
   
   config.action_mailer.smtp_settings= {
@@ -17,7 +17,7 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: 'javaee2015@gmail.com',
     password: '1234567890tipay',
-    :enable_starttls_auto => true 
+     
   }
   
   # Code is not reloaded between requests.
