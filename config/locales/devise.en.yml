@@ -15,8 +15,8 @@ en:
       not_found_in_database: "Invalido %{authentication_keys} o contraseña."#"Invalid %{authentication_keys} or password."
       timeout: "Su sesión ha expirado. Por favor Indentifiquese para continuar."#"Your session expired. Please sign in again to continue."
       unauthenticated: "Tienes que Indentificarte o Registrate para continuar."#"You need to sign in or sign up before continuing."
-      unconfirmed: "Tienes que confirmar el email parar continuar."#"You have to confirm your email address before continuing."
-      not_approved: 'Tu cuenta no se ha aprovado por el administrador aún.'
+      unconfirmed: "Tienes que confirmar el email para continuar."#"You have to confirm your email address before continuing."
+      not_approved: 'Tu cuenta ha sido desactivada por el administrador.'
     mailer:
       confirmation_instructions:
         subject: "Instrucciones de Confirmación"
