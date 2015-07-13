@@ -179,7 +179,7 @@
                 
                 <div class="modal-body">
                 
-                <div id="divalerta" class="alert" role="alert"></div>
+                <div id="divalerta2" class="alert" role="alert"></div>
                   
                 <!--Prepended text-->
                 <div class="form-group">
@@ -396,11 +396,13 @@
                 if (cadena.length > 0 && (regex.test(cadena.trim())) ) {
                     $("#input-Email").removeClass("has-error");
                     $("#input-Email").addClass("has-success");
+                    console.log("cumple")
                     return true;
                 }
                 else {
                     $("#input-Email").removeClass("has-success");
                     $("#input-Email").addClass("has-error");
+                    console.log("no cumple")
                     return false;
                 }
             }
@@ -450,7 +452,7 @@
                     $("#input-EmailI").removeClass("has-success");
                     $("#input-EmailI").addClass("has-error");
                     
-                    return false;
+                    return;
                 }
             }
             
@@ -465,10 +467,12 @@
                     $(this).empty();
                     $("#divalerta").hasClass("alert-success")
                 });
+                
+                console.log("mostro alerta");
             }
 
             $("#registrar").click(function(e){
-                
+                console.log("registrar click");
                 if(!validarNombre()){
                     $("#divalerta").addClass("alert-danger");
                     $("#divalerta").removeClass("alert-success");
@@ -499,6 +503,7 @@
                 
                 
                 if(!validarEmail()){
+                    console.log("entra a validarEmail");
                     $("#divalerta").addClass("alert-danger");
                     $("#divalerta").removeClass("alert-success");
                     var j = $("<p id=\"alerta\"><span class=\"glyphicon glyphicon-exclamation-sign\"></span>Formato de Email incorrecto PAPA</p>");
@@ -526,7 +531,7 @@
                             $("#input-Retrypass").addClass("has-error");
                             j = $("<p id=\"alerta\"><span class=\"glyphicon glyphicon-exclamation-sign\"></span>Las contraseñas no concuerdan</p>");        
                         }    
-                    
+                    console.log("Hola " + j);
                     $("#input-Pass").focus().hasClass("has-error");
                     $("#input-Repass").focus().hasClass("has-error");
                     mostrarAlerta(j);                
@@ -539,8 +544,8 @@
             $("#iniciar").click(function(e){
                
                if(!validarEmailI()){
-                    $("#divalerta").addClass("alert-danger");
-                    $("#divalerta").removeClass("alert-success");
+                    $("#divalerta2").addClass("alert-danger");
+                    $("#divalerta2").removeClass("alert-success");
                     
                     var j = $("<p id=\"alerta\"><span class=\"glyphicon glyphicon-exclamation-sign\"></span>Formato de Email incorrecto PAPA</p>");
                     $("#input-EmailI").focus().hasClass("has-error");
@@ -549,8 +554,8 @@
                     return false;   
                 }
                 if($("#passI").val().length <8){
-                    $("#divalerta").addClass("alert-danger");
-                    $("#divalerta").removeClass("alert-success");
+                    $("#divalerta2").addClass("alert-danger");
+                    $("#divalerta2").removeClass("alert-success");
                     
                     $("#input-PassI").removeClass("has-success");
                     $("#input-PassI").addClass("has-error");

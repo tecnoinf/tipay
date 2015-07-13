@@ -27,8 +27,8 @@ en:
             title: "Ops!"
             description: "Lo sentimos pero no encontramos la página que está buscando."
           internal_server_error:
-            title: "Internal Server Error"
-            description: "Sorry, something went wrong while processing your request."
+            title: "Error Internoo"
+            description: "Perdón, algo no muy bueno ha pasado,."
           bad_request:
             title: "Bad Request"
             description: "The server did not understand your request. It may have been malformed."
