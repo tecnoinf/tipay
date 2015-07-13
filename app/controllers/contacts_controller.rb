@@ -9,6 +9,7 @@ class ContactsController < ApplicationController
     @contact.request = request
     if @contact.deliver
       flash.now[:notice] = 'Gracias por el mensaje. Nos comunicaremos a la brevedad'
+      render :new
     else
       flash.now[:error] = 'No se pudo enviar el mensaje.'
       render :new
