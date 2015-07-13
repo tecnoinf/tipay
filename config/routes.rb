@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root 'static_pages#home'
   
-  get '/administrador' => 'static_pages#admin'  #admin es el nombre del archivo
+  #get '/administrador' => 'static_pages#admin'  #admin es el nombre del archivo
   
   get '/home' =>      'static_pages#home'
   get '/egresados' => 'static_pages#egresados'
