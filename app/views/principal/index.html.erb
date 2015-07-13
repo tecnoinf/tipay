@@ -26,7 +26,11 @@
         <% if Date.current() > date %> <!--si la fecha actual no se puede agregar eventos-->
             <%= date.month %>/<%= date.day %>
         <% else %><!-- sino, si se muestra el link para agregar el nuevo evento-->
-            <%= link_to  ("#{date.month} / #{date.day}"), evento_nuevo_path(:dato1 => date ), :method => :post %>
+            <% if current_user.role == 1%>
+                <%= link_to  ("#{date.month} / #{date.day}"), evento_nuevo_path(:dato1 => date ), :method => :post %>
+            <% else %>
+                <%= date.month %>/<%= date.day %>
+            <% end%>
         <% end %>
         
         <% @eventos.each do |e| %>

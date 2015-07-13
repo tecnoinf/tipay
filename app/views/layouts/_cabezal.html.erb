@@ -41,19 +41,42 @@
                                         <li>
                                             <%= link_to 'Ver Usuarios Inhabilitados', users_path(approved:'false') %>
                                         </li>
-                                         <li>
-                                        <%= link_to 'Agregar eventos', principal_index_path %>
+                                        <li>
+                                            <%= link_to 'Agregar eventos', principal_index_path %>
+                                        </li>
+                                        <li>
+                                            <%= link_to 'Editar Perfil' ,edit_user_registration_path %>
                                         </li>
                                     </ul>
                                 </nav>
                                 
                         </li>
-                         <!--li>
-                            <%#= link_to 'Members', users_path %>
-                        </li-->
                     <% else %>
-                        <li>    
-                            <%= link_to 'Noticias', notices_path  %>
+                        <li>
+                            <a id="menu-toggle" href="#" style="margin-right: 30px;">Panel Estudiante</a>
+                                
+                            <nav id="sidebar-wrapper">
+    
+                                <ul class="sidebar-nav">
+                                    <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+                            
+                                    <li class="sidebar-brand">
+                                        <a href="#top" >Estudiante</a>
+                                    </li>
+                                    <li>
+                                        <a href="/" >Home</a>
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Ver Noticia', notices_path %>
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Ver Eventos', 'principal/index' %>
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Editar Perfil' ,edit_user_registration_path %>
+                                    </li>
+                                </ul>
+                            </nav>
                         </li>
                     <%end%>
                     
@@ -70,10 +93,10 @@
                 
                 <% if current_user %>
                     
-                    <li>
-                        <li><%= link_to 'Editar Perfil' ,edit_user_registration_path %></li>
-                        <%#= link_to 'Editar Perfil' , edit_user_registration_path %>
-                    </li>
+                    
+                    
+                    <%#= link_to 'Editar Perfil' , edit_user_registration_path %>
+                    
                     
                     <li>
                         <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
@@ -388,12 +411,14 @@
                 if(pass.length == 0 && pass.length <8){
                     $("#input-Pass").removeClass("has-success");
                     $("#input-Pass").addClass("has-error");
+                    console.log("la primera es vacia o tiene menos de 8");
                     return false;
                 }
                 
                 if(retrypass.length == 0 && retrypass.length <8){
                     $("#input-Retryass").removeClass("has-success");
                     $("#input-Retrypass").addClass("has-error");
+                    console.log("la confirmacion es vacia o tiene menos de 8");
                     return false;
                 }
                 if(pass != retrypass){
@@ -401,12 +426,14 @@
                     $("#input-Pass").addClass("has-error");
                     $("#input-Retryass").removeClass("has-success");
                     $("#input-Retrypass").addClass("has-error");
+                    console.log("las pass son diferentes");
                     return false;
                 }else{
                     $("#input-Pass").removeClass("has-error");
                     $("#input-Pass").addClass("has-success");
                     $("#input-Retrypass").removeClass("has-error");
                     $("#input-Retrypass").addClass("has-success");
+                    return true;
                 }
             }
             function validarEmailI() {
@@ -484,6 +511,7 @@
                 
                 if(!validarPass()){
                     var j;
+                    console.log("validar pass es falso");
                     $("#divalerta").addClass("alert-danger");
                     $("#divalerta").removeClass("alert-success");
                         if($("#pass").val().length<8){
@@ -558,13 +586,13 @@
         	var docElem = document.documentElement,
         		header = document.querySelector( '.navbar-default' ),
         		didScroll = false,
-        		changeHeaderOn = 300;
+        		changeHeaderOn = 100;
         
         	function init() {
         		window.addEventListener( 'scroll', function( event ) {
         			if( !didScroll ) {
         				didScroll = true;
-        				setTimeout( scrollPage, 250 );
+        				setTimeout( scrollPage, 50 );
         			}
         		}, false );
         	}

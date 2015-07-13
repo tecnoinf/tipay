@@ -1,6 +1,6 @@
 
 
-<div class="form-horizontal">
+<div class="form-horizontal" style="margin-top:50px;">
 <%= form_for @user do |f| %>
 
     <div class="form-group">
@@ -13,6 +13,12 @@
         <%= f.label :last_name, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
             <%= f.text_field :last_name, autofocus: true, class: 'form-control'  %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :Contacto, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+            <%= f.text_field :contacto, autofocus: true, class: 'form-control'  %>
         </div>
     </div>
     
@@ -36,6 +42,10 @@
             <%= button_to "Borrar Este Usuario", registration_path(@user), data: { confirm: "Estás seguro?" }, method: :delete, class: 'btn btn-danger btn-md' %>
         </div>
     </div>
-
-
 </div>
+
+<style>
+    footer{
+        bottom:0;
+    }
+</style>
