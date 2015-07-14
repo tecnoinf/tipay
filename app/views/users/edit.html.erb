@@ -35,13 +35,15 @@
             <%= f.submit "Actualizar", class: "btn btn-primary" %>
         </div>
     </div>
-<% end %>    
     
-    <div class="form-group">
+<% end %>    
+<div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
-            <%= button_to "Borrar Este Usuario", registration_path(@user), data: { confirm: "Estás seguro?" }, method: :delete, class: 'btn btn-danger btn-md' %>
+            <%= button_to "Borrar Este Usuario", user_path(@user), data: { confirm: "Estás seguro de borrar #{@user.name}?" }, method: :delete, class: 'btn btn-danger btn-md' %>
         </div>
-    </div>
+</div>
+    
+    
 </div>
 
 <style>

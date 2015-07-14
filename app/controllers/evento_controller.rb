@@ -1,16 +1,13 @@
 class EventoController < ApplicationController
      Ruta_directorio_archivos = "public/archivos/";
-     
      def listar
-      @eventos = Evento.all
+     @eventos = Evento.all
      end
      
      def nuevo
-      if authorize_admin
-       @fecha = params[:dato1]
-       session[:fecha]=@fecha
-       @evento = Evento.new
-      end
+     @fecha = params[:dato1]
+     session[:fecha]=@fecha
+     @evento = Evento.new
      end
      
      def crear

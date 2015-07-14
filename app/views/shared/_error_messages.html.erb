@@ -1,0 +1,18 @@
+<% if object.errors.any? %>
+    <!--<div id="error_explanation">-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <%= pluralize(object.errors.count, 'errors') %>
+                <ul class="list-group">
+                    <% object.errors.full_messages.each do |msg| %>
+                    <li class="list-group-item"><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+        
+    <!--</div>-->
+<% end %>
