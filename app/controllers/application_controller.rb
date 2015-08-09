@@ -17,11 +17,13 @@ class ApplicationController < ActionController::Base
     def authorize_admin
       if !current_user
         redirect_to root_path, alert: 'Access Denied, necesita loguerse antes'
-        return
+        return false
       end
       if current_user.role != 1
         redirect_to root_path, alert: 'Acceso Denegado, solo Administradores pueden crear' #unless current_user.admin?
-        return
+        return false
+      elsif current_user ==1
+        return true
       end
     end
     

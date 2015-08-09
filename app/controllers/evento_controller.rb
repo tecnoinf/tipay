@@ -5,9 +5,16 @@ class EventoController < ApplicationController
      end
      
      def nuevo
-     @fecha = params[:dato1]
-     session[:fecha]=@fecha
-     @evento = Evento.new
+      if !current_user 
+            #flash.now[:error] = 'Acceso no permitido'
+            redirect_to root_path, alert: 'Acceso Restringido.'
+      elsif current_user.role!=1
+            #flash.now[:error] = 'Acceso no permitido2'
+          redirect_to root_path, alert: 'Acceso Restringido.'
+      end
+      @fecha = params[:dato1]
+      session[:fecha]=@fecha
+      @evento = Evento.new
      end
      
      def crear
